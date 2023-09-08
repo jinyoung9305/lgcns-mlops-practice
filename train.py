@@ -115,7 +115,7 @@ if __name__ == "__main__":
     # BentoML에 모델 저장
     bentoml.sklearn.save_model(
         name="house_rent",
-        model=mlflow.sklearn.load_model(bentoml),
+        model=mlflow.sklearn.load_model(best_model_uri),
         signatures={"predict": {"batchable": True, "batch_dim": 0}},
         metadata=best_params,
     )
